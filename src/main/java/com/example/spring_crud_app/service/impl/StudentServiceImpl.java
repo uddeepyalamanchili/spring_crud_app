@@ -21,47 +21,6 @@ public class StudentServiceImpl implements StudentService {
         this.studentRepository = studentRepository;
     }
 
-//    @Override
-//    public Student createStudent(Student student) {
-//        return studentRepository.save(student);
-//    }
-
-//    @Override
-//    public List<Student> getAllStudents() {
-//        return studentRepository.findAll();
-//    }
-//
-//    @Override
-//    public Student getStudentById(long id) {
-//        Optional<Student> student = studentRepository.findById(id);
-//        if (student.isPresent()) {
-//            return student.get();
-//        } else {
-//            throw new ResourceNotFoundException("Student", "Id", id);
-//        }
-//    }
-//
-//    @Override
-//    public Student updateStudent(Student student, long id) {
-//        Student existingStudent = studentRepository.findById(id)
-//                .orElseThrow(() -> new ResourceNotFoundException("Student", "Id", id));
-//        
-//        existingStudent.setFirstName(student.getFirstName());
-//        existingStudent.setLastName(student.getLastName());
-//        existingStudent.setEmail(student.getEmail());
-//        
-//        studentRepository.save(existingStudent);
-//        return existingStudent;
-//    }
-//
-//    @Override
-//    public void deleteStudent(long id) {
-//        Student student = studentRepository.findById(id)
-//                .orElseThrow(() -> new ResourceNotFoundException("Student", "Id", id));
-//        
-//        studentRepository.delete(student);
-//    }
-
 	@Override
 	public Student getStudentById(Long studentId) {
         Optional<Student> student = studentRepository.findById(studentId);
@@ -98,12 +57,6 @@ public class StudentServiceImpl implements StudentService {
         
         studentRepository.delete(student);		
 	}
-
-//	@Override
-//	public List<Student> getAllStudents() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 	
     @Override
     public List<Student> getAllStudents() {
