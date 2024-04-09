@@ -32,6 +32,9 @@ public class StudentController {
 
     @PostMapping
     public Student createStudent(@RequestBody Student student) {
+    	System.out.println("Hello World!");
+    	System.out.println("data recieved testing:");
+    	System.out.println(student);
         return studentService.createStudent(student);
     }
 
@@ -43,8 +46,8 @@ public class StudentController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteStudent(@PathVariable(value = "id") Long studentId) {
+    public  ResponseEntity<String> deleteStudent(@PathVariable(value = "id") Long studentId) {
         studentService.deleteStudent(studentId);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok("The resource with ID " + studentId + " was deleted successfully.");
     }
 }
