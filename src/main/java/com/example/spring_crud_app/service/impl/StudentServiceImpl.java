@@ -21,44 +21,92 @@ public class StudentServiceImpl implements StudentService {
         this.studentRepository = studentRepository;
     }
 
-    @Override
-    public Student saveStudent(Student student) {
-        return studentRepository.save(student);
-    }
+//    @Override
+//    public Student createStudent(Student student) {
+//        return studentRepository.save(student);
+//    }
 
-    @Override
-    public List<Student> getAllStudents() {
-        return studentRepository.findAll();
-    }
+//    @Override
+//    public List<Student> getAllStudents() {
+//        return studentRepository.findAll();
+//    }
+//
+//    @Override
+//    public Student getStudentById(long id) {
+//        Optional<Student> student = studentRepository.findById(id);
+//        if (student.isPresent()) {
+//            return student.get();
+//        } else {
+//            throw new ResourceNotFoundException("Student", "Id", id);
+//        }
+//    }
+//
+//    @Override
+//    public Student updateStudent(Student student, long id) {
+//        Student existingStudent = studentRepository.findById(id)
+//                .orElseThrow(() -> new ResourceNotFoundException("Student", "Id", id));
+//        
+//        existingStudent.setFirstName(student.getFirstName());
+//        existingStudent.setLastName(student.getLastName());
+//        existingStudent.setEmail(student.getEmail());
+//        
+//        studentRepository.save(existingStudent);
+//        return existingStudent;
+//    }
+//
+//    @Override
+//    public void deleteStudent(long id) {
+//        Student student = studentRepository.findById(id)
+//                .orElseThrow(() -> new ResourceNotFoundException("Student", "Id", id));
+//        
+//        studentRepository.delete(student);
+//    }
 
-    @Override
-    public Student getStudentById(long id) {
-        Optional<Student> student = studentRepository.findById(id);
+	@Override
+	public Student getStudentById(Long studentId) {
+        Optional<Student> student = studentRepository.findById(studentId);
         if (student.isPresent()) {
             return student.get();
         } else {
-            throw new ResourceNotFoundException("Student", "Id", id);
+            throw new ResourceNotFoundException("Student", "Id", studentId);
         }
-    }
+	}
 
-    @Override
-    public Student updateStudent(Student student, long id) {
-        Student existingStudent = studentRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Student", "Id", id));
+	@Override
+	public Student createStudent(Student student) {
+        return studentRepository.save(student);
+	}
+
+	@Override
+	public Student updateStudent(Long studentId, Student studentDetails) {
+
+        Student existingStudent = studentRepository.findById(studentId)
+                .orElseThrow(() -> new ResourceNotFoundException("Student", "Id", studentId));
         
-        existingStudent.setFirstName(student.getFirstName());
-        existingStudent.setLastName(student.getLastName());
-        existingStudent.setEmail(student.getEmail());
+        existingStudent.setFirstName(studentDetails.getFirstName());
+        existingStudent.setLastName(studentDetails.getLastName());
+        existingStudent.setEmail(studentDetails.getEmail());
         
         studentRepository.save(existingStudent);
         return existingStudent;
-    }
+	}
 
-    @Override
-    public void deleteStudent(long id) {
-        Student student = studentRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Student", "Id", id));
+	@Override
+	public void deleteStudent(Long studentId) {
+        Student student = studentRepository.findById(studentId)
+                .orElseThrow(() -> new ResourceNotFoundException("Student", "Id", studentId));
         
-        studentRepository.delete(student);
+        studentRepository.delete(student);		
+	}
+
+//	@Override
+//	public List<Student> getAllStudents() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+	
+    @Override
+    public List<Student> getAllStudents() {
+        return studentRepository.findAll();
     }
 }
