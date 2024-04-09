@@ -1,7 +1,7 @@
 package com.example.spring_crud_app.controller;
 
 import com.example.spring_crud_app.model.Student;
-import edu.gmu.springboot.service.StudentService;
+import com.example.spring_crud_app.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
