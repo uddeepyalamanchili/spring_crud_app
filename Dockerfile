@@ -1,9 +1,11 @@
-# Now we're setting up the runtime container which will just run the built JAR file.
-FROM  eclipse-temurin:latest
-# COPY --from=build /home/app/target/spring_crud_app*.jar /usr/local/lib/spring_crud_app.jar
-# EXPOSE 8080
-# ENTRYPOINT ["java","-jar","/usr/local/lib/spring_crud_app.jar"]
-WORKDIR /app
-COPY target/spring_crud_app*.jar /app/spring_crud_app.jar
-EXPOSE 8080
-CMD ["java", "-jar", "spring_crud_app.jar"]
+# Use an official OpenJDK runtime as a parent image
+FROM openjdk:23-ea-slim
+
+# Set the working directory in the container
+WORKDIR /opt/app
+
+# Copy the JAR file from your host to your current location in the image
+COPY ./target/spring_crud_app*.jar /opt/app/spring_crud_app.jar
+
+# Run the JAR file
+ENTRYPOINT ["java", "-jar", "/opt/app/spring_crud_app.jar"]
