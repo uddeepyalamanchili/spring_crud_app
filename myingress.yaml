@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: surveyformingress
+  namespace: default
+spec:
+  rules:
+    - host: ec2-107-22-31-146.compute-1.amazonaws.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: surveyformclusterip
+                port:
+                  number: 8080
+            path: /api/students/.*
+            pathType: ImplementationSpecific
+          - backend:
+              service:
+                name: surveyformclusterip
+                port:
+                  number: 8080
+            path: /api/students
+            pathType: ImplementationSpecific

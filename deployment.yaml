@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: surveyformapi
+  namespace: default
+  labels:
+    app: surveyformapi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: surveyformapi
+  template:
+    metadata:
+      name: surveyformapi
+      labels:
+        app: surveyformapi
+    spec:
+      containers:
+        - name: surveyformrestapi
+          image: hemu1999/survey_form_rest_api:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+            - name: spring.datasource.username
+              value: "swe645group"
+            - name: spring.datasource.password
+              value: "swe645_group!"
+      restartPolicy: Always
