@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: surveyformrestapi
-          image: hemu1999/survey_form_rest_api:latest
+          image: uddeepyalamanchili/spring_crud_app:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
