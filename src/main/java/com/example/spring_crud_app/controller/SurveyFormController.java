@@ -17,6 +17,7 @@ public class SurveyFormController {
 
     @GetMapping
     public ResponseEntity<List<SurveyForm>> getSurveyForm() {
+        System.out.println("Hello, world!");
         return new ResponseEntity<>(this.surveyFormService.getSurveyForms(), HttpStatus.OK);
     }
 
