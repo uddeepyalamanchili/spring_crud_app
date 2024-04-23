@@ -24,8 +24,6 @@ spec:
             - containerPort: 8080
               protocol: TCP
           env:
-            - name: spring.datasource.username
-              value: "swe645group"
-            - name: spring.datasource.password
-              value: "swe645_group!"
+            - name: DB_PASSWORD
+              value: swe645_group!
       restartPolicy: Always
