@@ -25,5 +25,5 @@ spec:
               protocol: TCP
           env:
             - name: DB_PASSWORD
-              value: swe645_group!
+              value: "swe645_group!"
       restartPolicy: Always
