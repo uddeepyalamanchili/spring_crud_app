@@ -122,7 +122,7 @@ rancher kubectl apply -f myingress.yaml
 
 • this script will connect to our cluster via rancher, remove the old deployment if exists and deploy with the updated yaml files
 
-# Springboot: Development and Deployment of a Spring Boot Application
+# Springboot Guide: Development and Deployment of a Spring Boot Application
 
 ### **Project Initialization and Configuration**
 
