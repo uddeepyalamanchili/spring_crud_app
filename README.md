@@ -1,4 +1,5 @@
-# Automated pipeline setup and deployment for a spring boot application
+# Full-Stack Cloud Deployment: Jenkins-Driven CI/CD for Spring Boot Apps on Kubernetes with AWS RDS
+## Automated pipeline setup and deployment for a spring boot application
 
 This guide outlines the setup of a Jenkins pipeline on an AWS EC2 instance, including Jenkins installation, Rancher CLI configuration, GitHub webhook integration, and Kubernetes deployment for a Spring Boot application. Additionally, it covers project initialization, Dockerization, and the use of AWS RDS for database management.
 
